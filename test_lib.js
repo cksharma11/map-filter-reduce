@@ -27,6 +27,23 @@ const testFilter = function(){
   console.log("testFilter Passed!");
 }
 
+const testReduce = function(){
+  const { reduce } = lib;
+  const sum = function(numberList){
+    let result = 0;
+    for(let index = 0; index < numberList.length; index++){
+      result = result + numberList[index];
+    }
+    return result;
+  }
+
+  deepEqual(reduce([1,2,3],sum),6);
+  deepEqual(reduce([1],sum),1);
+  deepEqual(reduce([1,7,3],sum),11);
+  deepEqual(reduce([-1,-2,-3],sum),-6);
+  console.log("testReduce Passed!");
+}
 
 testMap();
 testFilter();
+testReduce();

@@ -15,5 +15,10 @@ const filter = function(list, functionRef){
   return result;
 }
 
+const reduce = function(list, functionRef){
+  return functionRef(list);
+}
+
 exports.map = map;
 exports.filter = filter;
+exports.reduce = reduce;
