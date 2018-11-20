@@ -1,8 +1,11 @@
 const {equal, deepEqual} = require("assert");
-const lib = require("./lib.js");
+const { 
+  map,
+  filter,
+  reduce 
+} = require("./lib.js");
 
 const testMap = function(){
-  const { map } = lib;
   const square = function(number){
     return number * number;
   }
@@ -15,7 +18,6 @@ const testMap = function(){
 }
 
 const testFilter = function(){
-  const { filter } = lib;
   const isEven = function(number){
     return number % 2 == 0;
   }
@@ -28,7 +30,6 @@ const testFilter = function(){
 }
 
 const testReduce = function(){
-  const { reduce } = lib;
   const sum = function(numberList){
     let result = 0;
     for(let index = 0; index < numberList.length; index++){

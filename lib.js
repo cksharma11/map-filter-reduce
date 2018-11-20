@@ -1,16 +1,16 @@
 const map = function(list, functionRef){
   let result = [];
-  for(element of list){
-    result.push(functionRef(element));
+  for(index in list){
+    result.push(functionRef(list[index]));
   }
   return result;
 }
 
 const filter = function(list, functionRef){
   let result = [];
-  for(element of list){
-    if(functionRef(element))
-    result.push(element);
+  for(index in list){
+    if(functionRef(list[index]))
+    result.push(list[index]);
   }
   return result;
 }
