@@ -15,8 +15,17 @@ const filter = function(callbackFunction, list){
   return result;
 }
 
-const reduce = function(callbackFunction, list){
-  return callbackFunction(list);
+const reduce = function(callbackFunction, list, initialValue){
+  let startingIndex = 0;
+  if(!initialValue){
+    initialValue = list[0];
+    startingIndex = 1;
+  }
+  let accumulator = initialValue;
+  for(let index = startingIndex; index < list.length; index++){
+    accumulator = callbackFunction(accumulator, list[index]);
+  }
+  return accumulator;
 }
 
 exports.map = map;
