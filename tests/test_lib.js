@@ -18,8 +18,8 @@ const testMap = function(){
 }
 
 const testFilter = function(){
-  const isEven = function(number){
-    return number % 2 == 0;
+  const isEven = function(evenCandidate){
+    return evenCandidate % 2 == 0;
   }
 
   deepEqual(filter([1,2,3],isEven),[2]);
