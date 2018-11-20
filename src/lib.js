@@ -1,22 +1,22 @@
-const map = function(list, functionRef){
+const map = function(callbackFunction, list){
   let result = [];
   for(index in list){
-    result.push(functionRef(list[index]));
+    result.push(callbackFunction(list[index]));
   }
   return result;
 }
 
-const filter = function(list, functionRef){
+const filter = function(callbackFunction, list){
   let result = [];
   for(index in list){
-    if(functionRef(list[index]))
+    if(callbackFunction(list[index]))
     result.push(list[index]);
   }
   return result;
 }
 
-const reduce = function(list, functionRef){
-  return functionRef(list);
+const reduce = function(callbackFunction, list){
+  return callbackFunction(list);
 }
 
 exports.map = map;

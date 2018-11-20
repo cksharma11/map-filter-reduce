@@ -3,17 +3,17 @@ const {
   map,
   filter,
   reduce 
-} = require("./lib.js");
+} = require("../src/lib.js");
 
 const testMap = function(){
   const square = function(number){
     return number * number;
   }
 
-  deepEqual(map([1,2,3],square),[1,4,9]);
-  deepEqual(map([1],square),[1]);
-  deepEqual(map([1,7,3],square),[1,49,9]);
-  deepEqual(map([-1,-2,-3],square),[1,4,9]);
+  deepEqual(map(square, [1,2,3]),[1,4,9]);
+  deepEqual(map(square, [1]),[1]);
+  deepEqual(map(square, [1,7,3]),[1,49,9]);
+  deepEqual(map(square, [-1,-2,-3]),[1,4,9]);
   console.log("testMap Passed!");
 }
 
@@ -22,10 +22,10 @@ const testFilter = function(){
     return evenCandidate % 2 == 0;
   }
 
-  deepEqual(filter([1,2,3],isEven),[2]);
-  deepEqual(filter([1],isEven),[]);
-  deepEqual(filter([1,7,3],isEven),[]);
-  deepEqual(filter([-1,-2,-3],isEven),[-2]);
+  deepEqual(filter(isEven, [1,2,3]),[2]);
+  deepEqual(filter(isEven, [1]),[]);
+  deepEqual(filter(isEven, [1,7,3]),[]);
+  deepEqual(filter(isEven, [-1,-2,-3]),[-2]);
   console.log("testFilter Passed!");
 }
 
@@ -38,10 +38,10 @@ const testReduce = function(){
     return result;
   }
 
-  deepEqual(reduce([1,2,3],sum),6);
-  deepEqual(reduce([1],sum),1);
-  deepEqual(reduce([1,7,3],sum),11);
-  deepEqual(reduce([-1,-2,-3],sum),-6);
+  deepEqual(sum, reduce([1,2,3]),6);
+  deepEqual(sum, reduce([1]),1);
+  deepEqual(sum, reduce([1,7,3]),11);
+  deepEqual(sum, reduce([-1,-2,-3]),-6);
   console.log("testReduce Passed!");
 }
 
