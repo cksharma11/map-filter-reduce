@@ -1,16 +1,16 @@
 const map = function(callbackFunction, list){
   let result = [];
-  for(index in list){
-    result.push(callbackFunction(list[index]));
+  for(element of list){
+    result.push(callbackFunction(element));
   }
   return result;
 }
 
 const filter = function(callbackFunction, list){
   let result = [];
-  for(index in list){
-    if(callbackFunction(list[index]))
-    result.push(list[index]);
+  for(element of list){
+    if(callbackFunction(element))
+    result.push(element);
   }
   return result;
 }
