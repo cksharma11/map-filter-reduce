@@ -1,29 +1,29 @@
-const map = function(callbackFunction, list){
+const map = function(mapper, list){
   let result = [];
   for(element of list){
-    result.push(callbackFunction(element));
+    result.push(mapper(element));
   }
   return result;
 }
 
-const filter = function(callbackFunction, list){
+const filter = function(predicate, list){
   let result = [];
   for(element of list){
-    if(callbackFunction(element))
+    if(predicate(element))
     result.push(element);
   }
   return result;
 }
 
-const reduce = function(callbackFunction, list, initialValue){
+const reduce = function(reducer, list, initialValue){
   let startingIndex = 0;
-  if(!initialValue){
+  if(initialValue == undefined){
     initialValue = list[0];
     startingIndex = 1;
   }
   let accumulator = initialValue;
   for(let index = startingIndex; index < list.length; index++){
-    accumulator = callbackFunction(accumulator, list[index]);
+    accumulator = reducer(accumulator, list[index]);
   }
   return accumulator;
 }
