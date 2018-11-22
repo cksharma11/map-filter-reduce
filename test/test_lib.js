@@ -3,18 +3,35 @@ const {
   map,
   filter,
   reduce,
-  mapPrime
+  mapPrime,
+  filterPrime
 } = require("../src/lib.js");
 
+const square = function(number){
+  return number * number;
+}
+
+const increment = function(number){
+  return number + 1;
+}
+
+const isEven = function(evenCandidate){
+  return evenCandidate % 2 == 0;
+}
+
+const isOdd = function(oddCandidate){
+  return oddCandidate % 2 != 0;
+}
+
+const sum = function(number1, number2){
+  return number1 + number2;
+}
+
+const multiply = function(number1, number2){
+  return number1 * number2;
+}
+
 describe('map', function(){
-  const square = function(number){
-    return number * number;
-  }
-
-  const increment = function(number){
-    return number + 1;
-  }
-
   it('should return empty array when mapped with empty array', function(){
     deepEqual(map(square, []),[]);
   });
@@ -30,14 +47,6 @@ describe('map', function(){
 });
 
 describe('filter', function(){
-  const isEven = function(evenCandidate){
-    return evenCandidate % 2 == 0;
-  }
-
-  const isOdd = function(oddCandidate){
-    return oddCandidate % 2 != 0;
-  }
-
   it('should return empty array when has empty array as an input', function(){
     deepEqual(filter(isEven, []),[]);
   });
@@ -52,14 +61,6 @@ describe('filter', function(){
 });
 
 describe('reduce', function(){
-  const sum = function(number1, number2){
-    return number1 + number2;
-  }
-
-  const multiply = function(number1, number2){
-    return number1 * number2;
-  }
-
   it('should return undefined when input is empty array without initial value', function(){
     deepEqual(reduce(sum, []),undefined);
   });
@@ -74,14 +75,6 @@ describe('reduce', function(){
 });
 
 describe('mapPrime', function(){
-  const square = function(number){
-    return number * number;
-  }
-
-  const increment = function(number){
-    return number + 1;
-  }
-
   it('should return empty array when mapped with empty array', function(){
     deepEqual(mapPrime(square, []),[]);
   });
@@ -93,5 +86,19 @@ describe('mapPrime', function(){
   it('should map more then one element', function(){
     deepEqual(mapPrime(square,[1,2,3]), [1,4,9]);
     deepEqual(mapPrime(increment,[1,2,3,4]), [2,3,4,5]);
+  });
+});
+
+describe('filterPrime', function(){
+  it('should return empty array when has empty array as an input', function(){
+    deepEqual(filterPrime(isEven, []),[]);
+  });
+
+  it('should return all alements when function returns true for all inputes', function(){
+    deepEqual(filterPrime(isOdd, [1,3,5]),[1,3,5]);
+  });
+
+  it('should return empty array when function return false for all inputes', function(){
+    deepEqual(filterPrime(isEven, [1,3,5]),[]);
   });
 });
