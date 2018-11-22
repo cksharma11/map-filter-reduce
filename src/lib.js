@@ -28,6 +28,19 @@ const reduce = function(reducer, list, initialValue){
   return accumulator;
 }
 
+const reducerGenerator = function(mapper){
+  return function(accumulator, currentElement){
+    accumulator.push(mapper(currentElement));
+    return accumulator;
+  }
+}
+
+const mapPrime = function(mapper , list){
+  let reducer = reducerGenerator(mapper);
+  return reduce(reducer, list, []);
+}
+
 exports.map = map;
 exports.filter = filter;
 exports.reduce = reduce;
+exports.mapPrime = mapPrime;

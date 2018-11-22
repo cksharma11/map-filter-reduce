@@ -2,7 +2,8 @@ const {equal, deepEqual} = require("assert");
 const { 
   map,
   filter,
-  reduce 
+  reduce,
+  mapPrime
 } = require("../src/lib.js");
 
 describe('map', function(){
@@ -69,5 +70,28 @@ describe('reduce', function(){
 
   it('should return result when initial value and array with many elements', function(){
     deepEqual(reduce(sum, [1,2,3],4),10);
+  });
+});
+
+describe('mapPrime', function(){
+  const square = function(number){
+    return number * number;
+  }
+
+  const increment = function(number){
+    return number + 1;
+  }
+
+  it('should return empty array when mapped with empty array', function(){
+    deepEqual(mapPrime(square, []),[]);
+  });
+
+  it('should return one element when mapped with array of one element', function(){
+    deepEqual(mapPrime(increment, [1]),[2]);
+  });
+
+  it('should map more then one element', function(){
+    deepEqual(mapPrime(square,[1,2,3]), [1,4,9]);
+    deepEqual(mapPrime(increment,[1,2,3,4]), [2,3,4,5]);
   });
 });
