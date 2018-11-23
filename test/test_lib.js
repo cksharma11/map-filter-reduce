@@ -58,6 +58,10 @@ describe('filter', function(){
   it('should return empty array when function return false for all inputes', function(){
     deepEqual(filter(isEven, [1,3,5]),[]);
   });
+
+  it('should return array with elements that predicate true', function(){
+    deepEqual(filter(isEven, [1,2,3,4]), [2,4]);
+  });
 });
 
 describe('reduce', function(){

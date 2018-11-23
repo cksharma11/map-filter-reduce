@@ -8,13 +8,14 @@ const map = function(mapper, list, result = []){
 }
 
 const filter = function(predicate, list, result =[]){
-  if(predicate(list[0]) && list.length){
-    result.push(list[0]);
-    list = list.slice(1);
-    filter(predicate, list, result);
+  if(!list.length){
+    return result;
   }
-
-  return result;
+  if(predicate(list[0])){
+    result.push(list[0]);
+  }
+  list = list.slice(1);
+  return filter(predicate, list, result);
 }
 
 const reduce = function(reducer, list, initialValue){
