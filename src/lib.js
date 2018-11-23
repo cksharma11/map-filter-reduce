@@ -1,10 +1,8 @@
-const map = function(mapper, list, result = []){
+const map = function(mapper, list){
   if(list.length == 0){
-    return result;
+    return [];
   }
-  result.push(mapper(list[0]));
-  list = list.slice(1);
-  return map(mapper, list, result);
+  return [mapper(list[0])].concat(map(mapper, list.slice(1)));
 }
 
 const filter = function(predicate, list, result =[]){
