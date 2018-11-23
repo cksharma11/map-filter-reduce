@@ -7,12 +7,13 @@ const map = function(mapper, list, result = []){
   return map(mapper, list, result);
 }
 
-const filter = function(predicate, list){
-  let result = [];
-  for(element of list){
-    if(predicate(element))
-    result.push(element);
+const filter = function(predicate, list, result =[]){
+  if(predicate(list[0]) && list.length){
+    result.push(list[0]);
+    list = list.slice(1);
+    filter(predicate, list, result);
   }
+
   return result;
 }
 
