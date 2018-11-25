@@ -7,29 +7,17 @@ const {
   filterPrime
 } = require("../src/lib.js");
 
-const square = function(number){
-  return number * number;
-}
+const square = (number) => number * number; 
 
-const increment = function(number){
-  return number + 1;
-}
+const increment = (number) => number + 1;
 
-const isEven = function(evenCandidate){
-  return evenCandidate % 2 == 0;
-}
+const isEven = (evenCandidate) => evenCandidate%2 == 0;
 
-const isOdd = function(oddCandidate){
-  return oddCandidate % 2 != 0;
-}
+const isOdd = (oddCandidate) => !isEven(oddCandidate);
 
-const sum = function(number1, number2){
-  return number1 + number2;
-}
+const sum = (num1, num2) => num1 + num2;
 
-const multiply = function(number1, number2){
-  return number1 * number2;
-}
+const multiply = (num1, num2) => num1 * num2;
 
 describe('map', function(){
   it('should return empty array when mapped with empty array', function(){
