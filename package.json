@@ -1,0 +1,22 @@
+{
+  "name": "map_filter_reduce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cksharma11/map-filter-reduce.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cksharma11/map-filter-reduce/issues"
+  },
+  "homepage": "https://github.com/cksharma11/map-filter-reduce#readme"
+}
